@@ -62,7 +62,7 @@ class SSHAlteryxOperator(BaseOperator):
                  timeout=180,
                  *args,
                  **kwargs):
-        super(SSHModOperator, self).__init__(*args, **kwargs)
+        super(SSHAlteryxOperator, self).__init__(*args, **kwargs)
         self.ssh_hook = ssh_hook
         self.ssh_conn_id = ssh_conn_id
         self.remote_host = remote_host
@@ -131,7 +131,7 @@ class SSHAlteryxOperator(BaseOperator):
                     print(b64encode(agg_stdout).decode('UTF-8', errors = 'ignore'))
                     return b64encode(agg_stdout).decode('UTF-8', errors = 'ignore')
             else:
-                print(agg_stdout, '\n\nWorkflow error triggered by SW salesops')
+                print(agg_stdout, '\n\nWorkflow error triggered by Alteryx')
                 raise AirflowException("Workflow Error")
 
         return True
